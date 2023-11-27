@@ -11,9 +11,11 @@ body {
 
 canvas {
     position: absolute;
-    padding-bottom: 10px;
+    padding-bottom: 50px;
 }
 
-button-snapshot {
-    padding: 20px;
+.button-snapshot {
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

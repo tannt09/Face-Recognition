@@ -7,10 +7,12 @@ Promise.all([
 ]).then(startWebcam);
 
 function snapshot() {
-  console.log("Snapshot ::1111")
   const canvas = faceapi.createCanvasFromMedia(video);
-  const ctx = canvas.getContext('2d');
-  const imageUser = ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+  const imageUrl = canvas.toDataURL();
+  var link = document.createElement('a');
+  link.download = 'Capture' + (Math.floor(Date.now() / 1000)) + '.png';
+  link.href = imageUrl
+  link.click()
 }
 
 function startWebcam() {
