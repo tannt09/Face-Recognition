@@ -1,11 +1,12 @@
 const video = document.getElementById("video");
+// const fs = require("fs");
 
 Promise.all([
   faceapi.nets.ssdMobilenetv1.loadFromUri("/models"),
   faceapi.nets.faceRecognitionNet.loadFromUri("/models"),
   faceapi.nets.faceLandmark68Net.loadFromUri("/models"),
 ]).then(startWebcam);
-
+ 
 function snapshot() {
   const canvas = faceapi.createCanvasFromMedia(video);
   const imageUrl = canvas.toDataURL();
@@ -13,6 +14,10 @@ function snapshot() {
   link.download = 'Capture' + (Math.floor(Date.now() / 1000)) + '.png';
   link.href = imageUrl
   link.click()
+}
+
+function createNewData() {
+  // fs.mkdir("my-folder", { recursive: true });
 }
 
 function startWebcam() {
@@ -30,7 +35,7 @@ function startWebcam() {
 }
 
 function getLabeledFaceDescriptions() {
-  const labels = ["Captain America", "Captain Marvel"];
+  const labels = ["Captain America", "Captain Marvel", "Tan", "Tuan"];
   return Promise.all(
     labels.map(async (label) => {
       const descriptions = [];

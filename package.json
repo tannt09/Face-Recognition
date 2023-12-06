@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "start": "browserify ./src/script.js > ./dist/bundle.js"
+  }
+}
